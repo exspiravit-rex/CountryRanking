@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+}
+
+#gameArea {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url("sylus.jpg") no-repeat center center; /* HAHAHAHAH SYLUS */
+    background-size: cover;
+}
+
+.bubble {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(243, 243, 243, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: rgb(14, 14, 14);
+    animation: fall 10s linear forwards;
+}
+
+@keyframes fall {
+  from { top: -80px; }
+  to { top: 100%; }
+}
+
+#answerBar {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #0f0f0f;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameOverScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#gameOverContent {
+    background: rgb(209, 209, 209);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#gameOverContent h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+#playAgainButton {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff000d;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+#playAgainButton:hover {
+    background-color: #cc0000;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    z-index: 15;
+}

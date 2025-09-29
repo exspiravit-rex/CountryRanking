@@ -40,6 +40,7 @@ let currBubbles = [];
 let gameState = true; // playing
 let spawnInterval = null;
 let currScore = 0;
+let missedAns = null;
 
 // function to shuffle countries
 function shuffle(array) {
@@ -89,6 +90,7 @@ function spawnBubble(q, a) {
     bubble.addEventListener("animationend", () => {
         if (!bubble.dataset.cleared) {
             console.log("Game Over!");
+            missedAns = bubble.dataset.ans;
             endGame(false);
         }
     });
@@ -136,8 +138,19 @@ function endGame(result) {
 
     gameState = false;
     clearInterval(spawnInterval);
+
+    currBubbles.forEach(bubble => {
+        bubble.classList.add("paused");
+    });
+
     gameOverText.textContent = result ? "Congratulations!" : "Game Over!";
     finalScore.textContent = `Final Score: ${currScore}`;
+    if(!result) {
+        document.getElementById("correctAns").textContent = `The correct answer was: ${missedAns}`;
+    }
+    else {
+        document.getElementById("correctAns").textContent = "";
+    }
     gameOverScreen.style.display = "flex";
 }
 

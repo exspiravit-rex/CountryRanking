@@ -129,6 +129,9 @@ answerBar.addEventListener("keydown", (e) => {
             answerBar.value = "";
             currScore++;
             updateScore();
+            if (currScore === countries.length) {
+                endGame(true);
+            }
         }
     }
 });
